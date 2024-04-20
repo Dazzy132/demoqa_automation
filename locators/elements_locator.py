@@ -1,18 +1,18 @@
 class TextBoxLocators:
     # Input Fields
-    full_name = ("xpath", "//input[@id='userName']")
-    email = ("xpath", "//input[@id='userEmail']")
-    current_address = ("xpath", "//textarea[@id='currentAddress']")
-    permanent_address = ("xpath", "//textarea[@id='permanentAddress']")
+    FULL_NAME = ("xpath", "//input[@id='userName']")
+    EMAIL = ("xpath", "//input[@id='userEmail']")
+    CURRENT_ADDRESS = ("xpath", "//textarea[@id='currentAddress']")
+    PERMANENT_ADDRESS = ("xpath", "//textarea[@id='permanentAddress']")
 
     # Button
-    submit_button = ("xpath", "//button[@id='submit']")
+    SUBMIT_BUTTON = ("xpath", "//button[@id='submit']")
 
     # Output data
-    output_full_name = ("xpath", "//p[@id='name']")
-    output_email = ("xpath", "//p[@id='email']")
-    output_current_address = ("xpath", "//p[@id='currentAddress']")
-    output_permanent_address = ("xpath", "//p[@id='permanentAddress']")
+    OUTPUT_FULL_NAME = ("xpath", "//p[@id='name']")
+    OUTPUT_EMAIL = ("xpath", "//p[@id='email']")
+    OUTPUT_CURRENT_ADDRESS = ("xpath", "//p[@id='currentAddress']")
+    OUTPUT_PERMANENT_ADDRESS = ("xpath", "//p[@id='permanentAddress']")
 
 
 class CheckBoxLocators:
