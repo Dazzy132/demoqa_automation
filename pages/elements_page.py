@@ -1,7 +1,9 @@
+import random
+
 import allure
 
 from data import TextBoxData
-from locators.elements_locator import TextBoxLocators
+from locators.elements_locator import TextBoxLocators, CheckBoxLocators
 from pages.base import BasePage
 
 
@@ -30,3 +32,38 @@ class TextBoxPage(BasePage):
             current_address=output_current_address,
             permanent_address=output_permanent_address
         )
+
+
+class CheckBoxPage(BasePage):
+    locators = CheckBoxLocators()
+
+    def click_expand_checkboxes_button(self):
+        self.find_element(self.locators.EXPAND_ALL_BUTTON).click()
+
+    def click_random_checkboxes(self):
+        item_list = self.find_elements(self.locators.ITEM_LIST)
+        count = 15
+
+        while count > 0:
+            item = item_list[random.randint(1, 16)]
+            self.go_to_element(item)
+            item.click()
+            count -= 1
+
+    def get_checked_checkboxes(self):
+        checked_list = self.find_elements(self.locators.CHECKED_ITEMS)
+        data = []
+
+        for checked_item in checked_list:
+            checked_item_title = checked_item.find_element(*self.locators.CHECKED_ITEM_TITLE)
+            data.append(checked_item_title.text)
+
+        return str(data).replace(" ", "").replace(".doc", "").lower()
+
+    def get_output_checkboxes(self):
+        output_checkboxes = self.find_elements(self.locators.OUTPUT_DATA)
+        data = []
+        for output_checkbox in output_checkboxes:
+            data.append(output_checkbox.text)
+
+        return str(data).replace(" ", "").lower()
